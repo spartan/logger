@@ -42,7 +42,7 @@ class Log
      */
     public static function channelHandlers(string $name = 'default'): array
     {
-        $config = require './config/logging.php';
+        $config = require './config/log.php';
 
         $handlers = [];
         foreach ($config[$name] ?? [] as $index => $handler) {
