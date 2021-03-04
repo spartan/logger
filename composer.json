@@ -43,7 +43,25 @@
     "config": {
         "sort-packages": true
     },
-    "scripts": {
+    "extra": {
+        "spartan": {
+            "install": {
+                "env": {
+                    "LOG_STACK": "default",
+                    "LOG_FILE": "./data/logs/app_log",
+                    "LOG_WHOOPS": "./data/logs/whoops.html"
+                },
+                "copy": {
+                    "config/log.php": "config/log.php"
+                },
+                "scripts": [
+                    "mkdir -p ./data/logs && chmod 777 ./data/logs"
+                ],
+                "services": [
+                    "Spartan\\Logger\\ServiceProvider::class"
+                ]
+            }
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
